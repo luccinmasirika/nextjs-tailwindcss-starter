@@ -1,8 +1,6 @@
-import { useTheme } from "next-themes";
 import { PropsWithChildren, useEffect, useState } from "react";
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
-  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -11,7 +9,7 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
 
   if (!mounted) return <></>;
 
-  return <div>Layout</div>;
+  return <main>{children}</main>;
 };
 
 export default Layout;

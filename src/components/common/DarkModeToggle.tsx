@@ -18,20 +18,18 @@ const DarkModeToggle = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen" style={{ backgroundColor: containerBgColor }}>
-      <button
-        type="button"
-        className="relative inline-flex items-center justify-center w-10 h-6 rounded-full bg-gray-400 dark:bg-gray-600 focus:outline-none"
-        onClick={handleToggle}
+    <button
+      type="button"
+      className="relative inline-flex items-center justify-center w-10 h-6 rounded-full bg-gray-400 dark:bg-gray-600 focus:outline-none"
+      onClick={handleToggle}
+    >
+      <div
+        className="absolute w-6 h-6 bg-white rounded-full shadow flex justify-center items-center "
+        style={sliderStyle}
       >
-        <div
-          className="absolute w-6 h-6 bg-white rounded-full shadow flex justify-center items-center "
-          style={sliderStyle}
-        >
-          {isDark ? "🌞" : "🌙"}
-        </div>
-      </button>
-    </div>
+        {isDark ? "🌞" : "🌙"}
+      </div>
+    </button>
   );
 };
 

@@ -10,9 +10,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <DarkModeToggle />
-      </main>
+      <header className="height-60 bg-slate-500 dark:bg-slate-800 ">
+        <div className="container mx-auto flex justify-between p-2">
+          <div className="flex items-center">
+            <h1 className="text-2xl font-bold">Next.js + Tailwind CSS</h1>
+          </div>
+          <div className="flex items-center relative">
+            <DarkModeToggle />
+          </div>
+        </div>
+      </header>
     </>
   );
 }
