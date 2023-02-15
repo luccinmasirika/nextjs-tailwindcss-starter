@@ -1,7 +1,20 @@
 import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import DarkModeToggle from "../components/common/DarkModeToggle";
 
 export default function Home() {
+  const router = useRouter();
+
+  // find current route to set active class
+  const isActive = (route: string) => {
+    if (route === router.pathname) {
+      return "text-slate-100 bg-slate-700 dark:bg-slate-900 dark:text-slate-100";
+    } else {
+      return "text-slate-300 dark:text-slate-400 hover:text-slate-100 hover:bg-slate-700 dark:hover:bg-slate-900";
+    }
+  };
+
   return (
     <>
       <Head>
@@ -15,6 +28,16 @@ export default function Home() {
           <div className="flex items-center">
             <h1 className="text-2xl font-bold">Next.js + Tailwind CSS</h1>
           </div>
+          {/** add tailwind css navbar with custom hover item using Link from next router */}
+          <nav className="flex items-center">
+            <Link href="/" className={`px-3 py-2 rounded-md text-sm font-medium ${isActive("/")}`}>
+              Home
+            </Link>
+            <Link href="/exchange" className={`px-3 py-2 rounded-md text-sm font-medium ${isActive("/exchange")}`}>
+              Exchange
+            </Link>
+          </nav>
+          {/** add dark mode toggle button */}
           <div className="flex items-center relative">
             <DarkModeToggle />
           </div>
